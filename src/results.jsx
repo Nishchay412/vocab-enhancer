@@ -125,42 +125,12 @@ export function Results() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious onClick={handlePrevious} aria-label="Previous" />
-        <CarouselNext onClick={handleNext} aria-label="Next" />
+        <CarouselPrevious  />
+        <CarouselNext/>
       </Carousel>
 
       {/* Pagination component */}
-      <Pagination className="mt-4">
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious onClick={handlePrevious} href="#" />
-          </PaginationItem>
-          {Array.from({ length: Math.min(numPagesToShow, resultData.length) }, (_, index) => {
-            const pageIndex = startIndex + index;
-            return (
-              pageIndex <= endIndex && (
-                <PaginationItem key={pageIndex}>
-                  <PaginationLink
-                    href="#"
-                    onClick={() => setCurrentIndex(pageIndex)}
-                    className={pageIndex === currentIndex ? 'bg-blue-500 text-white' : ''}
-                  >
-                    {pageIndex + 1}
-                  </PaginationLink>
-                </PaginationItem>
-              )
-            );
-          })}
-          {endIndex < resultData.length - 1 && (
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-          )}
-          <PaginationItem>
-            <PaginationNext onClick={handleNext} href="#" />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      
     </div>
   );
 }
